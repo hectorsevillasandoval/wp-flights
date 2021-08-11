@@ -36,6 +36,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Rename this for your plugin and update it as you release new versions.
  */
 define( 'WP_FLIGHTS_VERSION', '1.0.0' );
+define( 'FLIGHTS_API', 'http://api.aviationstack.com/v1/flights?access_key=50ac63283b52cb320d6ad32f195db10d&limit=10' );
 
 /**
  * Defining Post Type

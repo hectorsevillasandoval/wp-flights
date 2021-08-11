@@ -30,7 +30,8 @@ class Wp_Flights_Deactivator {
 	 * @since    1.0.0
 	 */
 	public static function deactivate() {
-
+		$timestamp = wp_next_scheduled( 'wp_flights_cron_hook' );
+		wp_unschedule_event( $timestamp, 'wp_flights_cron_hook' );
 	}
 
 }
