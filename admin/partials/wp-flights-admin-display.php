@@ -11,6 +11,3 @@
  * @package    Wp_Flights
  * @subpackage Wp_Flights/admin/partials
  */
-?>
-
-<!-- This file should primarily consist of HTML with a little bit of PHP. -->

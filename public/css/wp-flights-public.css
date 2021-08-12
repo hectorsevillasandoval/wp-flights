@@ -2,3 +2,34 @@
  * All of the CSS for your public-facing functionality should be
  * included in this file.
  */
+
+ .wp-flights__item{
+     background-color: white;
+ }
+
+ @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700");
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+
+.wp-flights__item table {
+  width: 100%;
+  border: 1px solid #EEEEEE;
+  font-size: 18px;
+}
+.wp-flights__item h2{
+    font-family: "Source Sans Pro", serif;
+    font-weight: 700;
+    font-size: 32px;
+    padding:10px 20px;
+    color: white;
+    background-color: #222;
+}
+
+.wp-flights__item table tr:nth-of-type(odd) {
+  background: #EEEEEE;
+}
+.wp-flights__item table tr td:last-of-type{
+    font-style: italic;
+}

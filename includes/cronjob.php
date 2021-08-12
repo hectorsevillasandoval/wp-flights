@@ -1,6 +1,9 @@
 <?php
 require_once ABSPATH . 'wp-includes/pluggable.php';
+$api_key = get_option( 'wpflights_options' );
+
 // Crear un hook
+
 
 add_action( 'wp_flights_cron_hook', 'wp_flights_cron_exec' );
 
@@ -10,7 +13,8 @@ add_action( 'wp_flights_cron_hook', 'wp_flights_cron_exec' );
  * @return void
  */
 function wp_flights_cron_exec() {
-	$response     = wp_remote_get( FLIGHTS_API );
+	$api_key      = get_option( 'wpflights_options' );
+	$response     = wp_remote_get( 'http://api.aviationstack.com/v1/flights?access_key=' . $api_key . '&limit=10' );
 	$body         = wp_remote_retrieve_body( $response );
 	$api_response = json_decode( $body, true );
 
@@ -61,7 +65,7 @@ function update_custom_fields( $postID, $date = '', $dep_airport = '', $arr_airp
 	update_field( 'flight_information', $values, $postID );
 }
 // Schedule the event
-if ( ! wp_next_scheduled( 'wp_flights_cron_hook' ) ) {
+if ( ! wp_next_scheduled( 'wp_flights_cron_hook' ) && $api_key !== '' ) {
 	wp_schedule_event( time(), 'hourly', 'wp_flights_cron_hook' );
 }
 
